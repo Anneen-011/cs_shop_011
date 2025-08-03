@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSMJU Souvenir — ของที่ระลึกครบรอบ 30 ปี</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="pic/logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --nile: #253746;
+            --bermuda: #6B7B8C;
+            --chateau: #A3A9B3;
+            --cloudy: #BEC5C7;
+            --dawn: #F6F8F9;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+            font-family: 'Prompt', sans-serif;
+            background: var(--dawn);
+            color: var(--nile)
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #1f1f1f;
+            color: #fff
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: auto;
+            padding: 10px 20px
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px
+        }
+
+        .nav-links a {
+            color: #ccc;
+            font-weight: 600
+        }
+
+        .nav-links a:hover {
+            color: #fff
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 14px
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 85vh;
+            overflow: hidden;
+            text-align: center;
+            color: #fff
+        }
+
+        .hero video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: brightness(65%)
+        }
+
+        .hero-content {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%)
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-top: 10px
+        }
+
+        .hero {
+            position: relative;
+            height: 85vh;
+            overflow: hidden;
+        }
+
+        .video-bg iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-overlay h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .hero-overlay p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-overlay .btn {
+            background: var(--bermuda);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .hero-overlay .btn:hover {
+            background: var(--chateau);
+        }
+
+
+        .btn {
+            background: var(--bermuda);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .btn:hover {
+            background: var(--chateau)
+        }
+
+        /* Intro Section */
+        .intro {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            padding: 50px 20px
+        }
+
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem
+        }
+
+        .intro p {
+            margin-top: 10px;
+            color: #555;
+            line-height: 1.7
+        }
+
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1280px;
+            margin: auto;
+            padding: 30px 20px
+        }
+
+        .cat-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px
+        }
+
+        .cat-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: .3s
+        }
+
+        .cat-card:hover img {
+            transform: scale(1.05)
+        }
+
+        .cat-card span {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 600
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-top: 40px
+        }
+
+        .products-grid {
+            max-width: 1280px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            padding: 20px
+        }
+
+        .prod {
+            background: #fff;
+            border: 1px solid var(--cloudy);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center
+        }
+
+        .prod img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover
+        }
+
+        .prod h4 {
+            margin: 10px 0
+        }
+
+        .prod .price {
+            font-weight: 700
+        }
+
+        .prod button {
+            margin: 10px;
+            background: var(--bermuda);
+            border: none;
+            padding: 8px 12px;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer
+        }
+
+        .prod button:hover {
+            background: var(--chateau)
+        }
+        
+        .story {
+            background: #fff;
+            padding: 50px 20px;
+            margin-top: 30px
+        }
+
+        .story-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center
+        }
+
+        .story img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1)
+        }
+
+        .story-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 10px
+        }
+
+        .story-text p {
+            color: #444;
+            line-height: 1.7
+        }
+
+        footer {
+            background: var(--nile);
+            color: #ECEFCA;
+            text-align: center;
+            padding: 16px;
+            margin-top: 24px
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div>
+                <img src="pic/logo.png" alt="Logo" class="logo"  >
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="products.html">Products</a>
+                <a href="contact.html">Contact</a>
+                <a href="admin.html" style="color:#9cff33">Admin</a>
+            </nav>
+            <div class="nav-icons">
+                <i class="fa fa-search"></i>
+                <i class="fa fa-user"></i>
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+ <div class="video-bg absolute top-0 left-0 w-full h-full z-0">
+ <div class="absolute inset-0 z-0 pointer-events-none">
+    <iframe
+      class="w-full h-full absolute top-0 left-0 object-cover"
+      src="https://www.youtube.com/embed/_CqKv0Y1FB0?autoplay=1&mute=1&controls=0&loop=1&playlist=_CqKv0Y1FB0&modestbranding=1&showinfo=0&rel=0"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
+        <div class="hero-overlay">
+            <h1>CSMJU Souvenir Shop</h1>
+            <p>ของที่ระลึกครบรอบ 30 ปี วิทยาการคอมพิวเตอร์</p>
+            <button class="btn"
+                onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">เลือกชมสินค้า</button>
+        </div>
+    </section>
+
+    <section class="intro">
+        <h2>CSMJU Souvenir Shop</h2>
+        <p>ของที่ระลึกครบรอบ 30 ปี แห่งการก่อตั้ง สาขาวิชาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้ ถ่ายทอดผ่านงานออกแบบคุณภาพระดับพรีเมียม เพื่อผู้ที่มีหัวใจเดียวกัน</p>
+    </section>
+
+    <section id="categories" class="categories">
+        <div class="cat-card"><img src="pic/t-1.jpg"><span>เสื้อCotton</span></div>
+        <div class="cat-card"><img src="pic/bottle.jpg"><span>แก้วน้ำYati</span></div>
+        <div class="cat-card"><img src="pic/cap1.jpg"><span>หมวก30ปี</span></div>
+        <div class="cat-card"><img src="pic/bag.jpg"><span>กระเป๋า30ปี</span></div>
+        <div class="cat-card"><img src="pic/brooch.jpg"><span>เข็มกลัดทองอร่าม</span></div>
+    </section>
+
+    <h2 class="section-title">รายการสินค้าแนะนำ</h2>
+    <div class="products-grid">
+        <div class="prod"><img src="pic/t-1.jpg">
+            <h4>เสื้อยืดครบรอบ 30 ปี</h4>
+            <div class="price">350 บาท</div><button onclick="window.location='products.html'">ดูรายละเอียด</button>
+        </div>
+        <div class="prod"><img src="pic/bottle.jpg">
+            <h4>แก้วน้ำ CSMJU</h4>
+            <div class="price">200 บาท</div><button onclick="window.location='products.html'">ดูรายละเอียด</button>
+        </div>
+        <div class="prod"><img src="pic/cap1.jpg">
+            <h4>หมวก 30 ปี</h4>
+            <div class="price">150 บาท</div><button onclick="window.location='products.html'">ดูรายละเอียด</button>
+        </div>
+        <div class="prod"><img src="pic/bag.jpg">
+            <h4>กระเป๋า CSMJU30</h4>
+            <div class="price">350 บาท</div><button onclick="window.location='products.html'">ดูรายละเอียด</button>
+        </div>
+    </div>
+
+    
+
+    <footer>
+        <p>© 2025 CSMJU Shop | วิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้</p>
+    </footer>
+
+</body>
+
+</html>
